@@ -6092,11 +6092,11 @@ var require_client = __commonJS({
 });
 
 // src/index.ts
-var import_express = __toESM(require("express"));
-var import_client = __toESM(require_client());
+var import_express = __toESM(require("express"), 1);
+var import_client = __toESM(require_client(), 1);
 var app = (0, import_express.default)();
 var prisma = new import_client.PrismaClient();
-app.get("/increment/:id_counter", (req, res) => __async(exports, null, function* () {
+app.get("/increment/:id_counter", (req, res) => __async(void 0, null, function* () {
   let result;
   const counter = yield prisma.counter.findUnique({
     where: { id: req.params.id_counter }
