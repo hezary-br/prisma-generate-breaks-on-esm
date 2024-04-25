@@ -52,10 +52,10 @@ async function main() {
     format: "esm",
     target: "esnext", // <- required
     platform: "node",
-    banner: bundle ? shimBanner : undefined,
+    banner: shimBanner,
     outfile: "dist/index.js",
     // external: ["esnext"], // <- i may need
-    bundle,
+    bundle: true,
   }
 
   build(buildOptions)

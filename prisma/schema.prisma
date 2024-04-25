@@ -17,4 +17,5 @@ datasource db {
 model Counter {
   id    String @id @default(cuid())
   value Int
+  label String @default("UNLABELLED")
 }

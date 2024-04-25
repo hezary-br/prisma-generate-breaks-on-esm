@@ -14,7 +14,7 @@ app.get("/increment/:id_counter", async (req, res) => {
 
   if (!counter) {
     result = await prisma.counter.create({
-      data: { value: 0 },
+      data: { value: 0, label: "Something" },
     })
   } else {
     result = await prisma.counter.update({
