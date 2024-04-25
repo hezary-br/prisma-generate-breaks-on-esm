@@ -1,4 +1,3 @@
-"use strict";
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -22,6 +21,13 @@ var __spreadValues = (a, b2) => {
   return a;
 };
 var __spreadProps = (a, b2) => __defProps(a, __getOwnPropDescs(b2));
+var __require = /* @__PURE__ */ ((x2) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x2, {
+  get: (a, b2) => (typeof require !== "undefined" ? require : a)[b2]
+}) : x2)(function(x2) {
+  if (typeof require !== "undefined")
+    return require.apply(this, arguments);
+  throw Error('Dynamic require of "' + x2 + '" is not supported');
+});
 var __objRest = (source, exclude) => {
   var target = {};
   for (var prop in source)
@@ -34,7 +40,7 @@ var __objRest = (source, exclude) => {
     }
   return target;
 };
-var __commonJS = (cb, mod) => function __require() {
+var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __copyProps = (to2, from, except, desc) => {
@@ -163,7 +169,7 @@ var require_library = __commonJS({
     });
     var Do = Z((Qd, ko) => {
       "use strict";
-      var Ru = require("os"), _o = require("tty"), pe = Qn(), { env: G } = process, Ve;
+      var Ru = __require("os"), _o = __require("tty"), pe = Qn(), { env: G } = process, Ve;
       pe("no-color") || pe("no-colors") || pe("color=false") || pe("color=never") ? Ve = 0 : (pe("color") || pe("colors") || pe("color=true") || pe("color=always")) && (Ve = 1);
       "FORCE_COLOR" in G && (G.FORCE_COLOR === "true" ? Ve = 1 : G.FORCE_COLOR === "false" ? Ve = 0 : Ve = G.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(G.FORCE_COLOR, 10), 3));
       function Gn(e) {
@@ -266,7 +272,7 @@ var require_library = __commonJS({
     });
     var Vo = Z((nf, Mt) => {
       "use strict";
-      var Du = require("fs"), jo = require("path"), Ou = require("os"), Lu = qo(), Fu = Lu.version, Nu = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg;
+      var Du = __require("fs"), jo = __require("path"), Ou = __require("os"), Lu = qo(), Fu = Lu.version, Nu = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg;
       function Mu(e) {
         let r = {}, t = e.toString();
         t = t.replace(/\r\n?/mg, `
@@ -494,10 +500,10 @@ var require_library = __commonJS({
     }, log: (...e) => {
       var _a7;
       let [r, t, ...n] = e, i;
-      typeof require == "function" && typeof process < "u" && typeof process.stderr < "u" && typeof process.stderr.write == "function" ? i = (...o) => {
+      typeof __require == "function" && typeof process < "u" && typeof process.stderr < "u" && typeof process.stderr.write == "function" ? i = (...o) => {
         var _a8;
         try {
-          let s = require("util");
+          let s = __require("util");
           process.stderr.write(s.format(...o) + `
 `);
         } catch (e2) {
@@ -538,7 +544,7 @@ var require_library = __commonJS({
       Mr.length = 0;
     }
     var L = Fn;
-    var yo = k(require("fs"));
+    var yo = k(__require("fs"));
     function Nn() {
       let e = process.env.PRISMA_QUERY_ENGINE_LIBRARY;
       if (!(e && yo.default.existsSync(e)) && process.arch === "ia32")
@@ -550,9 +556,9 @@ var require_library = __commonJS({
       let t = r === "url";
       return e.includes("windows") ? t ? "query_engine.dll.node" : `query_engine-${e}.dll.node` : e.includes("darwin") ? t ? `${Rt}.dylib.node` : `${Rt}-${e}.dylib.node` : t ? `${Rt}.so.node` : `${Rt}-${e}.so.node`;
     }
-    var xo = k(require("child_process"));
-    var Vn = k(require("fs/promises"));
-    var Ot = k(require("os"));
+    var xo = k(__require("child_process"));
+    var Vn = k(__require("fs/promises"));
+    var Ot = k(__require("os"));
     var ke = Symbol.for("@ts-pattern/matcher");
     var cu = Symbol.for("@ts-pattern/isVariadic");
     var _t = "@ts-pattern/anonymous-select-key";
@@ -723,7 +729,7 @@ var require_library = __commonJS({
         return this;
       }
     };
-    var Po = require("util");
+    var Po = __require("util");
     var du = { warn: fe("prisma:warn") };
     var fu = { warn: () => !process.env.PRISMA_DISABLE_WARNINGS };
     function kt(e, ...r) {
@@ -927,8 +933,8 @@ ${c}`);
       return (0, $o.default)(e, e, { fallback: X });
     }
     var Zn = k(Vo());
-    var $t = k(require("fs"));
-    var fr = k(require("path"));
+    var $t = k(__require("fs"));
+    var fr = k(__require("path"));
     function Bo(e) {
       let r = e.ignoreProcessEnv ? {} : process.env, t = (n) => {
         var _a7, _b2;
@@ -1014,7 +1020,7 @@ Env vars from ${X(l)} overwrite the ones from ${X(a)}
       return e === "library" ? "library" : e === "binary" ? "binary" : void 0;
     }
     var Gu = k(ei());
-    var M = k(require("path"));
+    var M = k(__require("path"));
     var Ju = k(ei());
     var vf = L("prisma:engines");
     function Yo() {
@@ -1045,7 +1051,7 @@ Env vars from ${X(l)} overwrite the ones from ${X(a)}
     M.default.join(__dirname, "../libquery_engine-rhel-openssl-1.1.x.so.node");
     M.default.join(__dirname, "../libquery_engine-rhel-openssl-3.0.x.so.node");
     M.default.join(__dirname, "../query_engine-windows.dll.node");
-    var ri = k(require("fs"));
+    var ri = k(__require("fs"));
     var zo = L("chmodPlusX");
     function ti(e) {
       if (process.platform === "win32")
@@ -1073,7 +1079,7 @@ Details: ${r.message}`;
       let e;
       ((E) => (E.findUnique = "findUnique", E.findUniqueOrThrow = "findUniqueOrThrow", E.findFirst = "findFirst", E.findFirstOrThrow = "findFirstOrThrow", E.findMany = "findMany", E.create = "create", E.createMany = "createMany", E.update = "update", E.updateMany = "updateMany", E.upsert = "upsert", E.delete = "delete", E.deleteMany = "deleteMany", E.groupBy = "groupBy", E.count = "count", E.aggregate = "aggregate", E.findRaw = "findRaw", E.aggregateRaw = "aggregateRaw"))(e = r.ModelAction || (r.ModelAction = {}));
     })(De || (De = {}));
-    var Qr = k(require("path"));
+    var Qr = k(__require("path"));
     function ii(e) {
       return Qr.default.sep === Qr.default.posix.sep ? e : e.split(Qr.default.sep).join(Qr.default.posix.sep);
     }
@@ -1320,10 +1326,10 @@ ${(0, Xo.default)(Wu(n), 2)}
       };
     }
     var _l = k(Xn());
-    var kl = require("async_hooks");
-    var Dl = require("events");
-    var Ol = k(require("fs"));
-    var vt = k(require("path"));
+    var kl = __require("async_hooks");
+    var Dl = __require("events");
+    var Ol = k(__require("fs"));
+    var vt = k(__require("path"));
     var ie = class e {
       constructor(r, t) {
         if (r.length - 1 !== t.length)
@@ -3054,7 +3060,7 @@ Prisma Accelerate has built-in connection pooling to prevent such errors: https:
       return e._runtimeDataModel.models[r].fields.filter((t) => t.kind === "object").map((t) => t.name);
     }
     var Gs = k(oi());
-    var Qs = k(require("fs"));
+    var Qs = k(__require("fs"));
     var js = { keyword: _e, entity: _e, value: (e) => H(ze(e)), punctuation: ze, directive: _e, function: _e, variable: (e) => H(ze(e)), string: (e) => H(Me(e)), boolean: fe, number: _e, comment: Nr };
     var vp = (e) => e;
     var un = {};
@@ -3683,8 +3689,8 @@ Learn how: https://pris.ly/d/${pa[r]}-build`;
       let e = fa();
       return { id: e, prettyName: Kp[e] || e, isEdge: ["workerd", "deno", "netlify", "edge-light"].includes(e) };
     }
-    var ba = k(require("fs"));
-    var st = k(require("path"));
+    var ba = k(__require("fs"));
+    var st = k(__require("path"));
     function gn(e) {
       let { runtimeBinaryTarget: r } = e;
       return `Add "${r}" to \`binaryTargets\` in the "schema.prisma" file and run \`prisma generate\` after saving it:
@@ -4166,7 +4172,7 @@ ${t}`, R(n, true));
         });
       });
     }
-    var lm = typeof require < "u" ? require : () => {
+    var lm = typeof __require < "u" ? __require : () => {
     };
     var Vi = class {
       constructor(r = {}) {
@@ -4423,8 +4429,8 @@ ${t}`, R(n, true));
       if ((e == null ? void 0 : e.kind) === "itx")
         return e.options.id;
     }
-    var Gi = k(require("os"));
-    var Na = k(require("path"));
+    var Gi = k(__require("os"));
+    var Na = k(__require("path"));
     var Qi = Symbol("PrismaLibraryEngineCache");
     function mm() {
       let e = globalThis;
@@ -5997,7 +6003,7 @@ var require_client = __commonJS({
       JsonNull: objectEnumValues2.classes.JsonNull,
       AnyNull: objectEnumValues2.classes.AnyNull
     };
-    var path = require("path");
+    var path = __require("path");
     exports2.Prisma.TransactionIsolationLevel = makeStrictEnum2({
       Serializable: "Serializable"
     });
@@ -6059,7 +6065,7 @@ var require_client = __commonJS({
       "inlineSchemaHash": "0452a68772b3e47d5908d932df9e05f855a39f142cda8449dcbb35a666f264b2",
       "copyEngine": true
     };
-    var fs2 = require("fs");
+    var fs2 = __require("fs");
     config2.dirname = __dirname;
     var _a2;
     if (!fs2.existsSync(path.join(__dirname, "schema.prisma"))) {
@@ -6092,9 +6098,9 @@ var require_client = __commonJS({
 });
 
 // src/index.ts
-var import_express = __toESM(require("express"), 1);
 var import_client = __toESM(require_client(), 1);
-var app = (0, import_express.default)();
+import express from "express";
+var app = express();
 var prisma = new import_client.PrismaClient();
 app.get("/increment/:id_counter", (req, res) => __async(void 0, null, function* () {
   let result;
